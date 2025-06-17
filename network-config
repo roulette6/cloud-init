@@ -1,0 +1,17 @@
+network:
+  version: 2
+  ethernets:
+    eth0:
+      addresses:
+        - 192.168.128.todo_octet/23
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.128.1
+          metric: 1
+      nameservers:
+        search:
+          - 101203.xyz
+          - home.101203.xyz
+        addresses:
+          - 192.168.129.16
+
