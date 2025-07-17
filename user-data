@@ -17,6 +17,7 @@ users:
     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOOWBiuNbvSPbDEia4DJLgOt3Iwqvqj/OuEutTQO/hiN
     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHe0Jot8YOAge5u8yhCrW9y8BZx3/9Iy8FDrV5NTHOu1
     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDTbS8MnRihYYduAfc79FMsNMjnYUTbb3xzm+8es6uIK
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBUyrWL8KBrk7u9nL1jEkhwuS0HgQ4MoUrW3dF1rOIR7
 final_message: "==== cloud-init is grrrrrreat! ===="
 package_update: true
 package_upgrade: true
@@ -29,9 +30,6 @@ packages:
   - nfs-common
   - tmux
   - zsh
-bootcmd:
-  - sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"/' /etc/default/grub
-  - update-grub
 runcmd:
   - reboot
 

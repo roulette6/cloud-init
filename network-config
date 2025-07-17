@@ -1,7 +1,10 @@
 network:
   version: 2
   ethernets:
-    eth0:
+    primary:
+      match:
+        # can also do 'driver: "*" instead of name'
+        name: "e*"
       addresses:
         - 192.168.128.todo_octet/23
       routes:
