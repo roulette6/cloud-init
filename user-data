@@ -6,7 +6,7 @@ users:
   primary_group: josue
   groups: sudo
   lock_passwd: false
-  passwd: "todo_passwd"
+  passwd: pleasechangeme
   sudo: "ALL=(ALL) NOPASSWD:ALL"
   shell: /bin/bash
   ssh_authorized_keys:
@@ -29,7 +29,12 @@ packages:
   - gpg
   - nfs-common
   - tmux
+  - wget
   - zsh
 runcmd:
+  - for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove -y $pkg; done
+  - wget -qO- https://get.docker.com/ | sh
+  - usermod -aG docker josue
+  - NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   - reboot
 
