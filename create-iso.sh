@@ -12,7 +12,7 @@ read -p "Enter last octet: " octet
 
 # Check if any required variable is empty
 if [[ -z "$hostname" || -z "$octet" ]]; then
-    echo "Error: hostname and octet cannot be empty >&2
+    echo "Error: hostname and octet cannot be empty" >&2
     exit 1
 fi
 
