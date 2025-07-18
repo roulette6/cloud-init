@@ -19,10 +19,10 @@ fi
 
 # Hash password and replace placeholders in files
 password=$(openssl passwd -6 $password)
-sed -i "s/todo_hostname/${hostname}/g" meta-data
-sed -i "s/todo_hostname/${hostname}/g" user-data
-sed -i "s/todo_password/${password}/g" user-data
-sed -i "s/todo_octet/${octet}/g" network-config
+sed -i "s|todo_hostname|${hostname}|g" meta-data
+sed -i "s|todo_hostname|${hostname}|g" user-data
+sed -i "s|todo_passwd|${password}|g" user-data
+sed -i "s|todo_octet|${octet}|g" network-config
 
 # create ISO
 genisoimage \
